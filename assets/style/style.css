@@ -1,0 +1,114 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Nền chính */
+body {
+    background: linear-gradient(to bottom, #e0f7fa, #ffffff);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 15px;
+    min-height: 100vh;
+}
+
+/* Tiêu đề */
+h2 {
+    font-size: 1.8rem;
+    color: #006064;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+/* Danh sách môn */
+.list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.list a {
+    text-decoration: none;
+    background-color: #0097a7;
+    color: white;
+    text-align: center;
+    padding: 14px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.list a:hover {
+    background-color: #00796b;
+    transform: scale(1.03);
+}
+.list a i {
+    margin-right: 8px;
+}
+.list a.off {
+    background-color: #ccc;
+    color: #666;
+    pointer-events: none;
+    cursor: not-allowed;
+    transform: none;
+}
+/* Ghi chú */
+.note {
+    background-color: #ffe0b2;
+    color: #5d4037;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    max-width: 400px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Quảng cáo */
+.ad-box {
+    background-color: #fff3e0;
+    border: 2px dashed #ff9800;
+    padding: 16px;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 500px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    margin-bottom: 25px;
+}
+
+.ad-box h3 {
+    font-size: 1.2rem;
+    color: #e65100;
+    margin-bottom: 10px;
+}
+
+.ad-box p {
+    font-size: 1rem;
+    color: #4e342e;
+    line-height: 1.5;
+}
+.ad-box.office {
+    background-color: #e3f2fd;
+    border: 2px dashed #42a5f5;
+}
+
+.ad-box.office h3 {
+    color: #1565c0;
+}
+
+.ad-box.office p {
+    color: #263238;
+}
+.ad-box a{
+    color: #0d47a1;
+    font-weight: bold;
+    transition: color 0.3s;
+}

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Liên hệ</title>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* Nền */
+    body {
+      background: linear-gradient(to bottom, #e0f7fa, #ffffff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 30px 15px;
+      min-height: 100vh;
+    }
+
+    .form-container {
+      background: #ffffff;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+      max-width: 420px;
+      width: 100%;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      color: #006064;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 1rem;
+      background-color: #f5f5f5;
+      transition: border 0.3s;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: #0097a7;
+      outline: none;
+      background-color: #fff;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      background-color: #0097a7;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    button:hover:not(:disabled) {
+      background-color: #00796b;
+      transform: scale(1.02);
+    }
+
+    button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+
+    .status-message {
+      text-align: center;
+      margin-top: 15px;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    #submitBtn {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="form-container">
+    <h2>Liên hệ</h2>
+    <form id="emailForm">
+      <input type="text" id="name" placeholder="Lớp">
+      <input type="text" id="email" placeholder="Email hoặc sđt liên hệ">
+      <input type="text" id="title" placeholder="Tiêu đề">
+      <textarea id="message" placeholder="*Nội dung cần gửi..." required></textarea>
+      <button type="submit" id="submitBtn">Gửi</button>
+      <button type="button" onclick="window.location.href='index.html'" class="back-button">Quay lại</button>
+    </form>
+    <div class="status-message" id="status"></div>
+  </div>
+
+  <script>
+    emailjs.init("2uh1g9JtN1C_5Af-X");
+
+    const form = document.getElementById("emailForm");
+    const submitBtn = document.getElementById("submitBtn");
+    const status = document.getElementById("status");
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Đang gửi...";
+      status.textContent = "";
+
+      const now = new Date();
+      const formattedTime = now.toLocaleString('vi-VN');
+
+      const data = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        title: document.getElementById("title").value,
+        message: document.getElementById("message").value,
+        time: formattedTime
+      };
+
+      emailjs.send("service_ke6yhur", "template_lwtsnp7", data)
+        .then(function (response) {
+          status.textContent = "🎉 Gửi thành công! Cảm ơn bạn đã liên hệ.";
+          status.style.color = "green";
+          form.reset();
+        }, function (error) {
+          status.textContent = "❌ Lỗi khi gửi. Vui lòng thử lại.";
+          status.style.color = "red";
+        })
+        .finally(() => {
+          submitBtn.disabled = false;
+          submitBtn.textContent = "Gửi";
+        });
+    });
+  </script>
+</body>
+
+</html>

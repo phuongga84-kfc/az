@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lịch sử thay đổi đáp án</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* Nền chính */
+    body {
+      background: linear-gradient(to bottom, #e0f7fa, #ffffff);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px 15px;
+      min-height: 100vh;
+    }
+
+    /* Tiêu đề */
+    h2 {
+      font-size: 1.8rem;
+      color: #006064;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    /* Nút quay lại */
+    .back-button {
+      display: inline-block;
+      background-color: #0097a7;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-bottom: 25px;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .back-button:hover {
+      background-color: #00796b;
+      transform: scale(1.03);
+    }
+
+    /* Container log */
+    .log-list {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 500px;
+      gap: 15px;
+    }
+
+    .log-item {
+      background-color: #ffffff;
+      border-left: 6px solid #0097a7;
+      padding: 16px;
+      border-radius: 10px;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+      transition: transform 0.2s;
+    }
+
+    .log-item:hover {
+      transform: scale(1.01);
+    }
+
+    .log-time {
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 8px;
+    }
+
+    .log-content {
+      font-size: 1rem;
+      color: #333;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <h2>Lịch sử thay đổi đáp án</h2>
+  <div class="log-list">
+    <div class="log-item">
+      <div class="log-time">20:00 19/04/2025</div>
+      <div class="log-content">
+        Câu 5 đã được cập nhật từ “A. Thủ đô của Pháp là Berlin” thành “B. Thủ đô của Pháp là Paris”.
+      </div>
+    </div>
+    <div class="log-item">
+      <div class="log-time">19:45 19/04/2025</div>
+      <div class="log-content">
+        Toán đã được cập nhật từ Câu 2 D -> B; Câu 3 C -> D; Câu 17 B -> D; câu 27 B -> D.
+      </div>
+    </div>
+  </div>
+  <br>
+  <a href="index.html" class="back-button">← Quay lại</a>
+</body>
+</html>
